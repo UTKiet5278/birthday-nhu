@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#070707">
+  <title>A Golden Birthday Night — Như</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <canvas id="fxCanvas"></canvas>
+  <div class="light left deco"></div>
+  <div class="light right deco"></div>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music/birthday-piano.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicToggle" class="music-toggle" type="button">♫</button>
+  <main id="app">
+
+    <section class="scene active" id="scene-1">
+      <div class="stage intro">
+        <div class="balloons left-pack deco"><i class="balloon gold"></i><i class="balloon black"></i><i
+            class="balloon champ"></i></div>
+        <div class="copy">
+          <p class="kicker">10 · 08</p>
+          <h1>Có vẻ hôm nay là một ngày khá đặc biệt...</h1>
+          <p class="sub">Như có biết tại sao không? 👀</p>
+          <button class="btn primary next-btn" data-target="scene-2">⮕</button>
+        </div>
+        <div class="balloons right-pack deco"><i class="balloon champ"></i><i class="balloon black"></i><i
+            class="balloon gold"></i></div>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-2">
+      <div class="stage center">
+        <p class="kicker">Quá xá là đã</p>
+        <div class="shoot deco"></div>
+        <h2 class="hero">HAPPY BIRTHDAY<br><span>NHƯ</span> ✨</h2>
+        <p class="sub">Chúc mừng bạn lên 21 chủi!!!! 🎂</p>
+        <button class="btn primary next-btn" data-target="scene-3">Nhận quà nè 🎁</button>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-3">
+      <div class="stage two-col">
+        <div class="copy">
+          <p class="kicker">THE GIFT</p>
+          <h2>Có một món nhỏ cho cậu.</h2>
+          <p class="sub">Không có tiền bên trong đâu, đừng kỳ vọng quá 😌</p>
+          <button id="openGiftBtn" class="btn primary">Bấm ở đây để mở nè 😆</button>
+        </div>
+        <button id="giftBox" class="gift-box" aria-label="Mở hộp quà">
+          <span class="gift-glow deco"></span><span class="gift-body"></span><span class="ribbon-v"></span><span
+            class="ribbon-h"></span><span class="gift-lid"></span><span class="bow bl"></span><span
+            class="bow br"></span><span class="knot"></span>
+        </button>
+        <article id="wishCard" class="wish-card hidden">
+          <div class="star-mark">✦</div>
+          <p class="kicker">FOR NHƯ</p>
+          <h3>Chúc tuổi mới thật vui ✨</h3>
+          <p>Chúc cậu tuổi mới luôn vui vẻ, thật nhiều may mắn, làm gì cũng thuận lợi và lúc nào cũng có thật nhiều lý
+            do để cười.</p>
+          <p class="gold-text">Đặc biệt là bớt gặp deadline dí nha 😌</p>
+          <button class="btn primary next-btn" data-target="scene-4">Còn gì nữa không?</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-4">
+      <div class="stage two-col">
+        <div class="copy">
+          <p class="kicker">À ĐÚNG RỒI...</p>
+          <h2>Sinh nhật mà thiếu cái này thì hơi sai.</h2>
+          <p class="sub">Ước một điều đi Như.</p>
+          <button id="blowBtn" class="btn primary">Thổi nến ✨</button>
+          <button id="afterCakeBtn" class="btn primary next-btn hidden" data-target="scene-5">Xem điều bất ngờ
+            ⭐</button>
+        </div>
+        <div id="cake" class="cake" role="button" tabindex="0">
+          <span class="plate"></span><span class="cake-bottom"></span><span class="cake-upper"></span><span
+            class="cake-top"></span>
+          <span class="cream ca"></span><span class="cream cb"></span><span class="cream cc"></span>
+          <span class="candle c1"><i class="flame"></i><i class="smoke"></i></span>
+          <span class="candle c2"><i class="flame"></i><i class="smoke"></i></span>
+          <span class="candle c3"><i class="flame"></i><i class="smoke"></i></span>
+        </div>
+        <div id="cakeMessage" class="cake-message hidden"><b>Điều ước đã được gửi đi. ✨</b><span>Còn có thành hiện thực
+            không thì... phải chờ nha 😆</span></div>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-5">
+      <div class="stage center">
+        <p class="kicker">ONE MORE THING...</p>
+        <h2>Có một điều muốn xuất hiện đúng lúc này.</h2>
+        <p class="sub">Nhìn kỹ nha ✨</p>
+        <div class="name-wrap"><canvas id="nameCanvas"></canvas></div>
+        <button id="continueAfterName" class="btn primary next-btn hidden" data-target="scene-6">Đi đến lời chúc cuối
+          🎉</button>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-6">
+      <div class="stage center final">
+        <div class="final-balloons deco"><i class="balloon gold"></i><i class="balloon black"></i><i
+            class="balloon champ"></i><i class="balloon gold"></i></div>
+        <p class="kicker">HAPPY BIRTHDAY</p>
+        <h2 class="final-name">NHƯ 🎂</h2>
+        <div class="final-copy">
+          <p>Chúc cậu tuổi mới</p>
+          <p><b>vui nhiều hơn buồn,</b></p>
+          <p><b>cười nhiều hơn than,</b></p>
+          <p><b>may mắn nhiều hơn xui,</b></p>
+          <p>và quan trọng nhất...</p>
+          <p class="gold-text"><b>ăn sinh nhật thật vui nha 😆🎉</b></p>
+        </div>
+        <div class="signature"><span>From</span><strong>Tuấn Kiệt</strong></div>
+        <p class="date">Happy Birthday, Như. ✨ · 10.08</p>
+        <div class="actions"><button id="celebrateBtn" class="btn primary">Ăn mừng lần nữa (Bấm này nhiều lần lag máy
+            lun)</button><button id="replayBtn" class="btn secondary">↻ Xem lại</button></div>
+      </div>
+    </section>
+
+  </main>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
